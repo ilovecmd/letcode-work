@@ -1,0 +1,17 @@
+class Solution:
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        if not strs:
+            return ''
+        mins=min((strs))
+        maxs=max((strs))
+        pre="" 
+        for i in range(min(len(mins),len(maxs))):
+            if(mins[i]==maxs[i]):
+                pre=pre+mins[i]
+            else: 
+                break
+        return(pre)

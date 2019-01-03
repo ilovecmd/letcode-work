@@ -1,0 +1,17 @@
+class Solution:
+    # @return an integer
+    def romanToInt(self, s):
+        dic = {
+            'I': lambda i: -1 if s[i + 1] in ['V', 'X'] else 1,
+            'X': lambda i: -10 if s[i + 1] in ['L', 'C'] else 10,
+            'C': lambda i: -100 if s[i + 1] in ['D', 'M'] else 100,
+            'V': lambda i: 5,
+            'L': lambda i: 50,
+            'D': lambda i: 500,
+            'M': lambda i: 1000,
+        }
+        x = 0
+        s += '@'
+        for i, ch in enumerate(s[:-1]):
+            x += dic[ch](i)
+        return x
